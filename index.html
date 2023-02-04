@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Clock</h1>
+
+<div class="main">
+	<div class="child">
+		<div class="number one">1</div>
+		<div class="number two">2</div>
+		<div class="number three">3</div>
+		<div class="number four">4</div>
+		<div class="number five">5</div>
+		<div class="number six">6</div>
+		<div class="hands" id="hands">
+			<div class="cursor"></div>
+			<div class="hour" id="hour"></div>
+			<div class="minute" id="minute"></div>
+			<div class="second" id="sec"></div>
+		</div>
+		<div class="number seven">7</div>
+		<div class="number eight">8</div>
+		<div class="number nine">9</div>
+		<div class="number ten">10</div>
+		<div class="number eleven">11</div>
+		<div class="number twelve">12</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var hour_hand = document.getElementById("hour");
+	var second_hand = document.getElementById("sec");
+	var minute_hand = document.getElementById("minute");
+	setInterval(()=>{
+	var hours = new Date().getHours();
+	var minute = new Date().getMinutes();
+	var seconds = new Date().getSeconds();
+	hour_hand.style.transform = `rotate(${30*(hours-3) + minute / 2}deg)`;
+	second_hand.style.transform = `rotate(${seconds*6-90}deg)`;
+	minute_hand.style.transform = `rotate(${(minute-15) * 6}deg)`;
+	},1000);
+</script>
+</body>
+</html>
